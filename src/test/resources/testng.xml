@@ -1,5 +1,5 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
-<suite name="test-intuit-planetary Suite" parallel="methods" thread-count="150">
+<suite name="Intuit Nasa Sounds Planetary Suite" parallel="methods" thread-count="150">
 
 	<parameter name="Environment" value="${env}" />
 
