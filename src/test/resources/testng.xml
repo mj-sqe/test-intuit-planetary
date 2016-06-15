@@ -1,0 +1,22 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="IDX 2.0 Suite" parallel="methods" thread-count="150">
+
+	<parameter name="Environment" value="${env}" />
+
+	<test name="Tests">
+
+		<groups>
+			<run>
+				<include name="Regression" />
+			</run>
+		</groups>
+
+		<packages>
+			<package name="com.intuit.test.planetary.tests.sounds.*" />
+		</packages>
+
+		<!-- <classes> <class name="com.intuit.test.planetary.tests.sounds.get.VerifySoundsGet"/> </classes> -->
+
+	</test>
+
+</suite>
