@@ -52,19 +52,21 @@ Right-click on testng.xml (located under src/test/resources) and select Run As -
 NOTE: Using DataProviders which reuses test methods/code for various test scenarios
 
 1. Tests happy path using all valid query strings
-2. Tests response Json schema to ensure structure/contract is valid (i.e. fields, data types)
-3. Tests using invalid api_key query string in additon to testing query string data type with non-string values (i.e. int, double, double byte, null, etc)
+2. Tests response JSON schema to ensure structure/contract is valid (i.e. fields, data types)
+3. Tests using invalid *api_key* query string in additon to testing query string data type with non-string values (i.e. int, double, double byte, null, etc)
 4. Tests using unsupported query strings
-5. Tests using invalid q query string in additon to testing query string data type with non-string values (i.e. int, double, double byte, null, etc)
-6. Tests q filter using id field as a search filter and ensure response only contains object with specified id/s
-7. Tests using invalid limit query string in additon to testing query string data type with non-int values (i.e. negative int, string, double, double byte, null, etc)
-8. Tests the limit query string to ensure response size is as expected
+5. Tests using invalid _q_ query string in additon to testing query string data type with non-string values (i.e. int, double, double byte, null, etc)
+6. Tests _q_ filter using _id_ field values as a search filter and ensure response only contains object with specified id/s
+7. Tests using invalid _limit_ query string in additon to testing query string data type with non-int values (i.e. negative int, string, double, double byte, null, etc)
+8. Tests the _limit_ query string to ensure response size is as expected
 
 ## Comments
 
-1. limit query string returns 500 when non-int data type values are uses when it should be returning a 400
-2. q query string accepts non-string data types which should result to a 400 but a 200 is returned
-3. q filter is currently not working as when using a search filter it returns everything vs. adhering to the filter condition
+**Issues Found**
+
+1. _limit_ query string returns 500 when non-int data type values are uses when it should be returning a 400
+2. _q_ query string accepts non-string data types which should result to a 400 but a 200 is returned
+3. _q_ filter is currently not working as when using a search filter it returns everything vs. adhering to the filter condition
 4. There is no boundary for limit so when using a large number a 500 is returned vs. a meaningful response
 5. HTML responses are returning when it should be in the form of Json
 6. Endpoint has a test limitation as when you make a few requests 429 response codes are returned stating you hit your limitation
